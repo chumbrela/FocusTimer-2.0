@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --bg-color:hsl(0, 0%, 90%);
+    --text-color:hsl(240, 6%, 21%);
+    --bt-color:hsl(240, 9%, 89%);
+    --bt-hover-color:hsl(194, 97%, 31%);
+    --bt-hover-text:hsl(0, 0%, 100%);
+
+    font-size: 62.5%;
+
+}
+.flex{
+    display: flex
+}
+
+body{
+    font-family: 'Roboto',sans-serif;
+    height: 100vh;
+
+    flex-direction: column;
+    gap: 5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.content{
+    width: 32.1rem;
+
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    #timer{
+        font-size: 7rem;
+        font-weight: 500;
+        line-height: auto;
+        color: var(--text-color);
+    }
+
+    #controls {
+     gap: 1rem;
+    
+     button{
+        border: none;
+        background-color: transparent;
+        font-size: 4.5rem;
+        color: var(--text-color);
+        cursor: pointer;
+     }
+     button:hover{
+        color: var(--bt-hover-color);
+     }
+    }
+}
+.content button.hide{
+    display: none;
+}
+
+.states{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 1rem;
+
+    .icon-button{
+        width: 10rem;
+        height: 11rem;
+        background-color: var(--bt-color);
+
+        border: none;
+        border-radius: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .icon-button i {
+        font-size: 3.5rem;
+        color: var(--text-color);
+    }
+    
+    .icon-button:hover{
+        background-color: #cccccc;
+    }
+   
+    .icon-button.playing {
+        background-color: var(--bt-hover-color); /* Cor quando tocando */
+    }
+    
+    .icon-button.playing i {
+        color: var(--bt-playing-text, #fff); /* Cor do texto quando tocando */
+    }
+}
+
+@media (min-width: 1024px){
+    body{
+        flex-direction: row;
+        gap: 19.2rem;
+    }
+    .content{
+        width:auto;
+        gap: 3.1rem;
+
+        #timer{
+            font-size:12.5rem;
+            line-height: auto;
+        }
+        #controls button{
+            font-size: 7.8rem;
+            gap: 4rem;
+        }
+    }
+    .states{ 
+        gap: 3.2rem;
+        .icon-button{
+        min-width: 13.8rem;
+        min-height: 15.2rem;
+    }
+    .icon-button i {
+        font-size: 5rem;
+        color: var(--text-color);
+    }
+ }
+}
+
+.running .ph-play-circle,
+.running .ph-timer,
+.music-on .ph-speaker-none,
+html:not(.running) .ph-pause-circle{
+    display: none;
+}
